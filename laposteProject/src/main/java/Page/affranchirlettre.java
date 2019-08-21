@@ -13,7 +13,7 @@ public class affranchirlettre {
 	private Label label_2;
 	private Label label_3;
 	private Label label_4;
-
+	//
 	/**
 	 * Launch the application.
 	 */
