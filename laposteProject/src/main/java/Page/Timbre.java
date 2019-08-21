@@ -30,7 +30,7 @@ public class Timbre {
 	private JSpinner spinner;
 	private JSpinner spinner1;
 	private int totalpanier;
-	private String totalstr;
+	private static String totalstr = "0";
 	
 	
 	public int getNombre1() {
@@ -116,7 +116,7 @@ public class Timbre {
 		btnachat.setBounds(175, 253, 344, 122);
 		frame.getContentPane().add(btnachat);
 		
-		final JLabel label_1 = new JLabel("Dans mon panier : "+totalpanier+" €");
+		final JLabel label_1 = new JLabel("Dans mon panier : "+totalstr+" €");
 		label_1.setBounds(10, 436, 639, 14);
 		frame.getContentPane().add(label_1);
 		btnachat.addMouseListener(new MouseAdapter() {

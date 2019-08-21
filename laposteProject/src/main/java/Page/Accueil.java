@@ -15,6 +15,8 @@ import java.awt.event.MouseEvent;
 public class Accueil {
 
 	private JFrame frame;
+	private Timbre timbre = new Timbre();
+	private String totalpanier = timbre.getTotalStr();
 
 	/**
 	 * Launch the application.
@@ -100,7 +102,7 @@ public class Accueil {
 		frame.getContentPane().add(lblPoids);
 		
 		
-		final JLabel label_2 = new JLabel("Dans mon panier : €");
+		final JLabel label_2 = new JLabel("Dans mon panier : "+totalpanier+"€");
 		label_2.setBounds(10, 436, 639, 14);
 		frame.getContentPane().add(label_2);
 

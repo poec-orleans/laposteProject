@@ -15,13 +15,15 @@ import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
 
 public class CDV extends JFrame {
+	
+	private JFrame frame;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CDV frame = new CDV();
-					frame.setVisible(true);
+					CDV window = new CDV();
+					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,13 +52,6 @@ public class CDV extends JFrame {
 		getContentPane().add(txtrArticle);
 		
 		JButton btnAccueil = new JButton("Accueil");
-		btnAccueil.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				setVisible(false);
-				Accueil.main(null);
-			}
-		});
 		btnAccueil.setBounds(300, 410, 89, 23);
 		getContentPane().add(btnAccueil);
 		btnAccueil.addMouseListener(new MouseAdapter() {
