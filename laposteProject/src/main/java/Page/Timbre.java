@@ -28,11 +28,36 @@ public class Timbre {
 	private int nombre1;
 	private int nombre2;
 	private JSpinner spinner;
-	private JSpinner spinner_1;
-	private JSpinner spinner_1_1;
 	private JSpinner spinner1;
-	private Button button;
-	public int totalpanier;
+	private int totalpanier;
+	private String totalstr;
+	
+	
+	public int getNombre1() {
+		return this.nombre1;
+	}
+	
+	public JSpinner getSpinner1() {
+		return this.spinner;
+	}
+	
+	public JSpinner getSpinner2() {
+		return this.spinner1;
+	}
+	
+	public void setSpinner1(int i) {
+		this.spinner.setValue(i);
+	}
+	
+	public void setSpinner2(int i) {
+		this.spinner1.setValue(i);
+	}
+	
+	public String getTotalStr() {
+		return this.totalstr;
+	}
+	
+	
 
 	/**
 	 * Launch the application.
@@ -111,7 +136,7 @@ public class Timbre {
 			public void stateChanged(ChangeEvent arg0) {
 				Integer somme = (Integer) spinner.getValue() * 9;
 				nombre1 = somme;
-				String totalstr = Integer.toString(nombre1 + nombre2);
+				totalstr = Integer.toString(nombre1 + nombre2);
 				textfieldsomme.setText("Total à payer : "+totalstr+" €");
 				label_1.setText("Dans mon panier : "+totalstr+" €");
 			
@@ -129,7 +154,7 @@ public class Timbre {
 			public void stateChanged(ChangeEvent e) {
 				Integer somme2 = (Integer) spinner1.getValue();
 				nombre2 = somme2;
-				String totalstr = Integer.toString(nombre1 + nombre2);
+				totalstr = Integer.toString(nombre1 + nombre2);
 				textfieldsomme.setText("Total à payer : "+totalstr+" €");
 				label_1.setText("Dans mon panier : "+totalstr+" €");
 			}
