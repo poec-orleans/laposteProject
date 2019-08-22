@@ -15,6 +15,7 @@ public class Panier {
 	
 	public void resetPanierValue() {
 		this.panier = 0;
+		
 	}
 
 }

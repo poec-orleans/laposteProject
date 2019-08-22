@@ -103,13 +103,6 @@ public class Timbre {
 		JLabel lblTimbreLunit = new JLabel("Timbre \u00E0 l'unit\u00E9 (1\u20AC)");
 		lblTimbreLunit.setBounds(10, 108, 122, 14);
 		frame.getContentPane().add(lblTimbreLunit);
-		
-		//
-				
-		
-		final JLabel textfieldsomme = new JLabel("Total à payer : 0 €");
-		textfieldsomme.setBounds(10, 155, 122, 14);
-		frame.getContentPane().add(textfieldsomme);
 	
 		JButton btnachat = new JButton("Continuer les achats !!!!!");
 		btnachat.setFont(new Font("Franklin Gothic Heavy", Font.PLAIN, 25));
@@ -124,6 +117,7 @@ public class Timbre {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.setVisible(false);
+				Accueil.getPanier().setPanierValue((Accueil.getPanier().getPanierValue() + total));
 				Accueil.main(null);
 			}
 		});
@@ -138,9 +132,9 @@ public class Timbre {
 				Integer somme = (Integer) spinner.getValue() * 9;
 				nombre1 = somme;
 				total = (nombre1 + nombre2);
-				Accueil.getPanier().setPanierValue(total);
-				textfieldsomme.setText("Total à payer : "+total+" €");
-				label_1.setText("Dans mon panier : "+total+" €");
+				//Accueil.getPanier().setPanierValue(total);
+				
+				label_1.setText("Dans mon panier : " + (Accueil.getPanier().getPanierValue() + total) + " €");
 			
 			}
 		});
@@ -157,9 +151,9 @@ public class Timbre {
 				Integer somme2 = (Integer) spinner1.getValue();
 				nombre2 = somme2;
 				total = (nombre1 + nombre2);
-				Accueil.getPanier().setPanierValue(total);
-				textfieldsomme.setText("Total à payer : "+total+" €");
-				label_1.setText("Dans mon panier : "+total+" €");
+				//Accueil.getPanier().setPanierValue(total);
+				
+				label_1.setText("Dans mon panier : " + (Accueil.getPanier().getPanierValue() + total) + " €");
 			}
 		});
 		
@@ -167,13 +161,14 @@ public class Timbre {
 		frame.getContentPane().add(spinner1);
 		//test
 		
-		JButton btnAccueil = new JButton("Accueil");
-		btnAccueil.setBounds(300, 398, 89, 23);
+		JButton btnAccueil = new JButton("Tout annuler / Retour à l'accueil");
+		btnAccueil.setBounds(200, 402, 300, 23);
 		frame.getContentPane().add(btnAccueil);
 		btnAccueil.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.setVisible(false);
+				Accueil.getPanier().resetPanierValue();
 				Accueil.main(null);
 			}
 		});
