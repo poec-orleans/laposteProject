@@ -111,15 +111,16 @@ public class affranchirlettre {
 				Integer poids = (Integer) spinner_1.getValue();
 				if (poids < 20 && poids > 0) {
 					label_1.setText("Dans mon panier : "+(Accueil.getPanier().getPanierValue()+1)+" €");
-					//total = Accueil.getPanier().getPanierValue()+1;
+					total = Accueil.getPanier().getPanierValue()+1;
 					
 				}
 				else if (poids == 0){
 					label_1.setText("Dans mon panier : "+ Accueil.getPanier().getPanierValue() + " €");
+					total = Accueil.getPanier().getPanierValue();
 				}
 				else {
 					label_1.setText("Dans mon panier : "+(Accueil.getPanier().getPanierValue()+2)+" €");
-					//total = Accueil.getPanier().getPanierValue()+2;
+					total = Accueil.getPanier().getPanierValue()+2;
 				}
 			}
 		});
@@ -128,10 +129,7 @@ public class affranchirlettre {
 		
 		//bouton valider
 		JButton btnValider = new JButton("Valider");
-		btnValider.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+
 		btnValider.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
