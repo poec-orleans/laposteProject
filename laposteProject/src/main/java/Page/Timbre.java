@@ -165,14 +165,16 @@ public class Timbre {
 		//test
 		
 		JButton btnAccueil = new JButton("Accueil");
-		btnAccueil.setBounds(300, 398, 89, 23);
+		btnAccueil.setBounds(300, 395, 113, 23);
 		frame.getContentPane().add(btnAccueil);
 		btnAccueil.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.setVisible(false);
 				Accueil.main(null);
+				
 			}
+
 		});
 		
 	}
