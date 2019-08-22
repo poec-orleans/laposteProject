@@ -91,7 +91,7 @@ public class affranchirlettre {
 		//int n = (int) (Math.random() * 5);
 		//double prix = 0.9;
 		//String prixfinal = String.valueOf(prix);
-//
+
 	
 		JButton btnAccueil = new JButton("Tout annuler/Retour \u00E0 l'accueil");
 		btnAccueil.addActionListener(new ActionListener() {
