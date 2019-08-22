@@ -9,7 +9,6 @@ import java.awt.Font;
 import java.awt.Label;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-//import javax.swing.JProgressBar;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
@@ -17,26 +16,29 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class affranchirlettre {
 
 	private JFrame frame;
 	private Label label;
-	//private JLabel lblPoidsDeLa_1;
 	private JLabel lblPoidsDeLa;
-	private JSpinner spinner;
 	private JSpinner spinner_1;
 	private JLabel label_1;
 	private int total;
 	
 	//get du spinner
-	public JSpinner getSpinner1() {
-		return this.spinner;
+	public JSpinner getSpinner() {
+		return this.spinner_1;
 	}
 	
 	//set du spinner
-	public void setSpinner1(int i) {
-		this.spinner.setValue(i);
+	public void setSpinner(int i) {
+		this.spinner_1.setValue(i);
+	}
+	
+	public int getTotal() {
+		return this.total;
 	}
 	//
 	/**
@@ -44,7 +46,7 @@ public class affranchirlettre {
 	 */
 	
 	//
-	public static void affranchirlettre(String[] args) {
+	public static void Affranchirlettre(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -68,8 +70,6 @@ public class affranchirlettre {
 	 * Initialize the contents of the frame.
 	 */
 
-    // function to increase progress 
-   
 	
 	private void initialize() {
 
@@ -86,14 +86,12 @@ public class affranchirlettre {
 		label.setAlignment(Label.CENTER);
 		label.setBounds(0, 0, 684, 233);
 		frame.getContentPane().add(label);
-		//uh
 
 		//int n = (int) (Math.random() * 5);
 		//double prix = 0.9;
 		//String prixfinal = String.valueOf(prix);
-
 	
-		JButton btnAccueil = new JButton("Tout annuler/Retour \u00E0 l'accueil");
+		JButton btnAccueil = new JButton("Tout annuler / Retour \u00E0 l'accueil");
 		btnAccueil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -101,8 +99,9 @@ public class affranchirlettre {
 		btnAccueil.setBounds(200, 402, 300, 25);
 		frame.getContentPane().add(btnAccueil);
 		
-		lblPoidsDeLa = new JLabel("Poids de la lettre");
-		lblPoidsDeLa.setBounds(310, 249, 89, 14);
+		lblPoidsDeLa = new JLabel("Poids de la lettre :");
+		lblPoidsDeLa.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPoidsDeLa.setBounds(295, 249, 110, 14);
 		frame.getContentPane().add(lblPoidsDeLa);
 		
 		spinner_1 = new JSpinner();
@@ -110,14 +109,17 @@ public class affranchirlettre {
 		spinner_1.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent arg0) {
 				Integer poids = (Integer) spinner_1.getValue();
-				if (poids < 20) {
-					label_1.setText("Dans mon panier: "+(Accueil.getPanier().getPanierValue()+1)+" €");
-					total = Accueil.getPanier().getPanierValue()+1;
+				if (poids < 20 && poids > 0) {
+					label_1.setText("Dans mon panier : "+(Accueil.getPanier().getPanierValue()+1)+" €");
+					//total = Accueil.getPanier().getPanierValue()+1;
 					
 				}
+				else if (poids == 0){
+					label_1.setText("Dans mon panier : "+ Accueil.getPanier().getPanierValue() + " €");
+				}
 				else {
-					label_1.setText("Dans mon panier: "+(Accueil.getPanier().getPanierValue()+2)+" €");
-					total = Accueil.getPanier().getPanierValue()+2;
+					label_1.setText("Dans mon panier : "+(Accueil.getPanier().getPanierValue()+2)+" €");
+					//total = Accueil.getPanier().getPanierValue()+2;
 				}
 			}
 		});

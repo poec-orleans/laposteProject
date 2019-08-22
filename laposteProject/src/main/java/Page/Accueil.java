@@ -64,7 +64,7 @@ public class Accueil {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.setVisible(false);
-				affranchirlettre.affranchirlettre(null);
+				affranchirlettre.Affranchirlettre(null);
 			}
 		});
 		btnNewButton.setBackground(new Color(30, 144, 255));
@@ -88,11 +88,6 @@ public class Accueil {
 		btnNewButton_2.setBounds(230, 236, 240, 90);
 		frame.getContentPane().add(btnNewButton_2);
 		
-		JTextArea txtrPoids = new JTextArea();
-		txtrPoids.setBounds(300, 10, 100, 22);
-		txtrPoids.setEditable(false);
-		frame.getContentPane().add(txtrPoids);
-		
 		JButton btnConditionsDeVente = new JButton("Conditions de vente et tarifs");
 		btnConditionsDeVente.addMouseListener(new MouseAdapter() {
 			@Override
@@ -104,10 +99,6 @@ public class Accueil {
 		btnConditionsDeVente.setBackground(new Color(30, 144, 255));
 		btnConditionsDeVente.setBounds(230, 330, 240, 90);
 		frame.getContentPane().add(btnConditionsDeVente);
-		
-		JLabel lblPoids = new JLabel("Poids :");
-		lblPoids.setBounds(244, 15, 46, 14);
-		frame.getContentPane().add(lblPoids);
 		
 		
 		final JLabel label_2 = new JLabel("Dans mon panier : "+panier.getPanierValue()+"€");
