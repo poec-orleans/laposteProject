@@ -29,8 +29,8 @@ public class Timbre {
 	private int nombre2;
 	private JSpinner spinner;
 	private JSpinner spinner1;
-	private int totalpanier;
-	private static String totalstr = "0";
+	//private int totalpanier;
+	private int total = 0;
 	
 	
 	public int getNombre1() {
@@ -53,9 +53,9 @@ public class Timbre {
 		this.spinner1.setValue(i);
 	}
 	
-	public String getTotalStr() {
-		return this.totalstr;
-	}
+//	public String getTotalStr() {
+//		return this.totalstr;
+//	}
 	
 	
 
@@ -116,7 +116,8 @@ public class Timbre {
 		btnachat.setBounds(175, 253, 344, 122);
 		frame.getContentPane().add(btnachat);
 		
-		final JLabel label_1 = new JLabel("Dans mon panier : "+totalstr+" €");
+		
+		final JLabel label_1 = new JLabel("Dans mon panier : "+Accueil.getPanier().getPanierValue()+" €");
 		label_1.setBounds(10, 436, 639, 14);
 		frame.getContentPane().add(label_1);
 		btnachat.addMouseListener(new MouseAdapter() {
@@ -136,9 +137,10 @@ public class Timbre {
 			public void stateChanged(ChangeEvent arg0) {
 				Integer somme = (Integer) spinner.getValue() * 9;
 				nombre1 = somme;
-				totalstr = Integer.toString(nombre1 + nombre2);
-				textfieldsomme.setText("Total à payer : "+totalstr+" €");
-				label_1.setText("Dans mon panier : "+totalstr+" €");
+				total = (nombre1 + nombre2);
+				Accueil.getPanier().setPanierValue(total);
+				textfieldsomme.setText("Total à payer : "+total+" €");
+				label_1.setText("Dans mon panier : "+total+" €");
 			
 			}
 		});
@@ -154,9 +156,10 @@ public class Timbre {
 			public void stateChanged(ChangeEvent e) {
 				Integer somme2 = (Integer) spinner1.getValue();
 				nombre2 = somme2;
-				totalstr = Integer.toString(nombre1 + nombre2);
-				textfieldsomme.setText("Total à payer : "+totalstr+" €");
-				label_1.setText("Dans mon panier : "+totalstr+" €");
+				total = (nombre1 + nombre2);
+				Accueil.getPanier().setPanierValue(total);
+				textfieldsomme.setText("Total à payer : "+total+" €");
+				label_1.setText("Dans mon panier : "+total+" €");
 			}
 		});
 		

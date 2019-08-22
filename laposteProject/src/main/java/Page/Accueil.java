@@ -16,7 +16,14 @@ public class Accueil {
 
 	private JFrame frame;
 	private Timbre timbre = new Timbre();
-	private String totalpanier = timbre.getTotalStr();
+	//private String totalpanier = timbre.getTotalStr();
+	private static Panier panier = new Panier();
+	
+	public static Panier getPanier () {
+		return panier;
+	}
+	
+	
 
 	/**
 	 * Launch the application.
@@ -56,7 +63,8 @@ public class Accueil {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				lettreprio.lettreprioritaire(null);
+				frame.setVisible(false);
+				affranchirlettre.affranchirlettre(null);
 			}
 		});
 		btnNewButton.setBackground(new Color(30, 144, 255));
@@ -102,7 +110,7 @@ public class Accueil {
 		frame.getContentPane().add(lblPoids);
 		
 		
-		final JLabel label_2 = new JLabel("Dans mon panier : "+totalpanier+"€");
+		final JLabel label_2 = new JLabel("Dans mon panier : "+panier.getPanierValue()+"€");
 		label_2.setBounds(10, 436, 639, 14);
 		frame.getContentPane().add(label_2);
 
