@@ -168,27 +168,5 @@ public class Timbre {
 				label_1.setText("Dans mon panier : " + (Accueil.getPanier().getPanierValue() + total) + " €");
 			}
 		});
-		
-<<<<<<< HEAD
-		spinner1.setBounds(591, 105, 83, 20);
-		frame.getContentPane().add(spinner1);
-		//test
-		
-		JButton btnAccueil = new JButton("Tout annuler / Retour à l'accueil");
-		btnAccueil.setBounds(200, 402, 300, 23);
-		frame.getContentPane().add(btnAccueil);
-		btnAccueil.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				frame.setVisible(false);
-				Accueil.getPanier().resetPanierValue();
-				Accueil.main(null);
-				
-			}
-
-		});
-		
-=======
->>>>>>> a643fadd1255e4a40597d6d118aac09e860f70bd
-	}
+}
 }
