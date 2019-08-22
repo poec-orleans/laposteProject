@@ -22,17 +22,16 @@ import java.awt.Font;
 public class Timbre {
 
 	private JFrame frame;
-	private JTextField txtTimbre;
-	
 	
 	private int nombre1;
 	private int nombre2;
 	private JSpinner spinner;
 	private JSpinner spinner1;
-	//private int totalpanier;
 	private int total = 0;
 	
-	
+	//********************//
+	//	Getters / Setters //
+	//********************//
 	public int getNombre1() {
 		return this.nombre1;
 	}
@@ -53,12 +52,10 @@ public class Timbre {
 		this.spinner1.setValue(i);
 	}
 	
-//	public String getTotalStr() {
-//		return this.totalstr;
-//	}
+	public int getTotal() {
+		return this.total;
+	}
 	
-	
-
 	/**
 	 * Launch the application.
 	 */
@@ -103,16 +100,18 @@ public class Timbre {
 		JLabel lblTimbreLunit = new JLabel("Timbre \u00E0 l'unit\u00E9 (1\u20AC)");
 		lblTimbreLunit.setBounds(10, 108, 122, 14);
 		frame.getContentPane().add(lblTimbreLunit);
-	
-		JButton btnachat = new JButton("Continuer les achats !!!!!");
-		btnachat.setFont(new Font("Franklin Gothic Heavy", Font.PLAIN, 25));
-		btnachat.setBounds(175, 253, 344, 122);
-		frame.getContentPane().add(btnachat);
-		
 		
 		final JLabel label_1 = new JLabel("Dans mon panier : "+Accueil.getPanier().getPanierValue()+" €");
 		label_1.setBounds(10, 436, 639, 14);
 		frame.getContentPane().add(label_1);
+		
+		//********************************//
+		//	Bouton "Continuer les achats" //
+		//********************************//
+		JButton btnachat = new JButton("Continuer les achats !!!!!");
+		btnachat.setFont(new Font("Franklin Gothic Heavy", Font.PLAIN, 25));
+		btnachat.setBounds(175, 253, 344, 122);
+		frame.getContentPane().add(btnachat);
 		btnachat.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -122,41 +121,55 @@ public class Timbre {
 			}
 		});
 		
+		//*********************************************//
+		//	Bouton "Tout annuler / Retour à l'accueil" //
+		//*********************************************//
+		JButton btnAccueil = new JButton("Tout annuler / Retour à l'accueil");
+		btnAccueil.setBounds(200, 402, 300, 23);
+		frame.getContentPane().add(btnAccueil);
+		btnAccueil.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.setVisible(false);
+				Accueil.getPanier().resetPanierValue();
+				Accueil.main(null);
+			}
+		});
+		
+		//******************************//
+		//	Spinner "Timbres en carnet" //
+		//******************************//
 		spinner = new JSpinner();
+		spinner.setBounds(591, 57, 83, 20);
+		frame.getContentPane().add(spinner);
 		spinner.setModel(new SpinnerNumberModel(0, 0, 100, 1));
-		spinner1 = new JSpinner();
-		
-		
 		spinner.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent arg0) {
 				Integer somme = (Integer) spinner.getValue() * 9;
 				nombre1 = somme;
 				total = (nombre1 + nombre2);
-				//Accueil.getPanier().setPanierValue(total);
-				
 				label_1.setText("Dans mon panier : " + (Accueil.getPanier().getPanierValue() + total) + " €");
 			
 			}
 		});
 		
-		spinner.setBounds(591, 57, 83, 20);
-		frame.getContentPane().add(spinner);
-		
-		
-		
+		//******************************//
+		//	Spinner "Timbres à l'unité" //
+		//******************************//
 		spinner1 = new JSpinner();
+		spinner1.setBounds(591, 105, 83, 20);
+		frame.getContentPane().add(spinner1);
 		spinner1.setModel(new SpinnerNumberModel(0, 0, 1000, 1));
 		spinner1.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				Integer somme2 = (Integer) spinner1.getValue();
 				nombre2 = somme2;
 				total = (nombre1 + nombre2);
-				//Accueil.getPanier().setPanierValue(total);
-				
 				label_1.setText("Dans mon panier : " + (Accueil.getPanier().getPanierValue() + total) + " €");
 			}
 		});
 		
+<<<<<<< HEAD
 		spinner1.setBounds(591, 105, 83, 20);
 		frame.getContentPane().add(spinner1);
 		//test
@@ -175,5 +188,7 @@ public class Timbre {
 
 		});
 		
+=======
+>>>>>>> a643fadd1255e4a40597d6d118aac09e860f70bd
 	}
 }
