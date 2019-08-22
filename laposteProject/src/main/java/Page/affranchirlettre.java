@@ -153,6 +153,7 @@ public class affranchirlettre {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.setVisible(false);
+				Accueil.getPanier().resetPanierValue();
 				Accueil.main(null);
 		
 		}
