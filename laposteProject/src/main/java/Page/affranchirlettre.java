@@ -86,6 +86,7 @@ public class affranchirlettre {
 		label.setAlignment(Label.CENTER);
 		label.setBounds(0, 0, 684, 233);
 		frame.getContentPane().add(label);
+		//uh
 
 		//int n = (int) (Math.random() * 5);
 		//double prix = 0.9;
