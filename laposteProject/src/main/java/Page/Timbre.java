@@ -167,6 +167,6 @@ public class Timbre {
 				total = (nombre1 + nombre2);
 				label_1.setText("Dans mon panier : " + (Accueil.getPanier().getPanierValue() + total) + " €");
 			}
-		});
+		});		
 }
 }
