@@ -124,17 +124,17 @@ public class Timbre {
 		//*********************************************//
 		//	Bouton "Tout annuler / Retour à l'accueil" //
 		//*********************************************//
-		JButton btnAccueil = new JButton("Tout annuler / Retour à l'accueil");
-		btnAccueil.setBounds(200, 402, 300, 23);
-		frame.getContentPane().add(btnAccueil);
-		btnAccueil.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				frame.setVisible(false);
-				Accueil.getPanier().resetPanierValue();
-				Accueil.main(null);
-			}
-		});
+//		JButton btnAccueil = new JButton("Retour à l'accueil");
+//		btnAccueil.setBounds(200, 402, 300, 23);
+//		frame.getContentPane().add(btnAccueil);
+//		btnAccueil.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				frame.setVisible(false);
+//				//Accueil.getPanier().resetPanierValue();
+//				Accueil.main(null);
+//			}
+//		});
 		
 		//******************************//
 		//	Spinner "Timbres en carnet" //
@@ -168,5 +168,31 @@ public class Timbre {
 				label_1.setText("Dans mon panier : " + (Accueil.getPanier().getPanierValue() + total) + " €");
 			}
 		});		
+		
+		JButton btnViderLePanier = new JButton("Vider le panier");
+		btnViderLePanier.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				spinner.setValue(0);
+				spinner1.setValue(0);
+				Accueil.getPanier().resetPanierValue();
+				label_1.setText("Dans mon panier : 0 €");
+			}
+		});
+		btnViderLePanier.setBackground(new Color(30, 144, 255));
+		btnViderLePanier.setBounds(552, 432, 122, 23);
+		frame.getContentPane().add(btnViderLePanier);
+		
+		JButton btnNewButton_3 = new JButton("Payement");
+		btnNewButton_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.setVisible(false);
+				Paiement.main(null);
+			}
+		});
+		btnNewButton_3.setBackground(new Color(30, 144, 255));
+		btnNewButton_3.setBounds(552, 397, 122, 23);
+		frame.getContentPane().add(btnNewButton_3);
 }
 }

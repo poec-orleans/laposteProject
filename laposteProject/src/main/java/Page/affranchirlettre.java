@@ -91,7 +91,7 @@ public class affranchirlettre {
 		//double prix = 0.9;
 		//String prixfinal = String.valueOf(prix);
 	
-		JButton btnAccueil = new JButton("Tout annuler / Retour \u00E0 l'accueil");
+		JButton btnAccueil = new JButton("Retour \u00E0 l'accueil");
 		btnAccueil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -111,16 +111,19 @@ public class affranchirlettre {
 				Integer poids = (Integer) spinner_1.getValue();
 				if (poids < 20 && poids > 0) {
 					label_1.setText("Dans mon panier : "+(Accueil.getPanier().getPanierValue()+1)+" €");
-					total = Accueil.getPanier().getPanierValue()+1;
+					//total = Accueil.getPanier().getPanierValue()+1;
+					total = 1;
 					
 				}
 				else if (poids == 0){
 					label_1.setText("Dans mon panier : "+ Accueil.getPanier().getPanierValue() + " €");
-					total = Accueil.getPanier().getPanierValue();
+					//total = Accueil.getPanier().getPanierValue();
+					total = 0;
 				}
 				else {
 					label_1.setText("Dans mon panier : "+(Accueil.getPanier().getPanierValue()+2)+" €");
-					total = Accueil.getPanier().getPanierValue()+2;
+					//total = Accueil.getPanier().getPanierValue()+2;
+					total = 2;
 				}
 			}
 		});
@@ -134,7 +137,7 @@ public class affranchirlettre {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.setVisible(false);
-				Accueil.getPanier().setPanierValue(total);
+				Accueil.getPanier().setPanierValue(Accueil.getPanier().getPanierValue() + total);
 				Accueil.main(null);
 			}
 		});
@@ -145,8 +148,6 @@ public class affranchirlettre {
 		label_1 = new JLabel("Dans mon panier : "+Accueil.getPanier().getPanierValue()+" €");
 		label_1.setBounds(10, 436, 639, 14);
 		frame.getContentPane().add(label_1);
-		
-		
 		
 		//bouton accueil
 		btnAccueil.addMouseListener(new MouseAdapter() {
@@ -159,6 +160,31 @@ public class affranchirlettre {
 		}
 		
 	});	
+		
+		JButton btnViderLePanier = new JButton("Vider le panier");
+		btnViderLePanier.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				spinner_1.setValue(0);
+				Accueil.getPanier().resetPanierValue();
+				label_1.setText("Dans mon panier : 0 €");
+			}
+		});
+		btnViderLePanier.setBackground(new Color(30, 144, 255));
+		btnViderLePanier.setBounds(552, 432, 122, 23);
+		frame.getContentPane().add(btnViderLePanier);
+		
+		JButton btnNewButton_3 = new JButton("Payement");
+		btnNewButton_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.setVisible(false);
+				Paiement.main(null);
+			}
+		});
+		btnNewButton_3.setBackground(new Color(30, 144, 255));
+		btnNewButton_3.setBounds(552, 397, 122, 23);
+		frame.getContentPane().add(btnNewButton_3);
 		
 			
 }

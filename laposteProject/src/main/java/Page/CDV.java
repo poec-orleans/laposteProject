@@ -43,8 +43,8 @@ public class CDV extends JFrame {
 		setBounds(100, 100, 700, 500);
 		getContentPane().setLayout(null);
 		
-		JButton btnAccueil = new JButton("Accueil");
-		btnAccueil.setBounds(300, 410, 89, 23);
+		JButton btnAccueil = new JButton("Retour à l'accueil");
+		btnAccueil.setBounds(250, 410, 200, 23);
 		getContentPane().add(btnAccueil);
 		
 		TextArea textArea = new TextArea();
