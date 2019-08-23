@@ -51,7 +51,7 @@ public class Paiement {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnRetourLaccueil = new JButton("Tout annuler / Retour à l'accueil");
+		JButton btnRetourLaccueil = new JButton("Retour à l'accueil");
 		btnRetourLaccueil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
