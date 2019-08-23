@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.SystemColor;
 
 public class Accueil {
 
@@ -122,6 +123,18 @@ public class Accueil {
 		btnViderLePanier.setBackground(new Color(30, 144, 255));
 		btnViderLePanier.setBounds(552, 432, 122, 23);
 		frame.getContentPane().add(btnViderLePanier);
+		
+		JButton btnNewButton_3 = new JButton("Payement");
+		btnNewButton_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.setVisible(false);
+				Paiement.main(null);
+			}
+		});
+		btnNewButton_3.setBackground(new Color(30, 144, 255));
+		btnNewButton_3.setBounds(552, 397, 122, 23);
+		frame.getContentPane().add(btnNewButton_3);
 
 		
 	}
