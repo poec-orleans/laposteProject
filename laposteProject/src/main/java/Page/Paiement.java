@@ -9,7 +9,10 @@ import javax.swing.JLabel;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.Font;
+import java.awt.SystemColor;
 
 public class Paiement {
 
@@ -43,15 +46,18 @@ public class Paiement {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(255, 250, 205));
 		frame.setBounds(100, 100, 700, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnAccueil = new JButton("Tout annuler / Retour \u00E0 l'accueil");
-		btnAccueil.addActionListener(new ActionListener() {
+		JButton btnRetourLaccueil = new JButton("Tout annuler / Retour à l'accueil");
+		btnRetourLaccueil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
+		btnRetourLaccueil.setBounds(200, 402, 300, 25);
+		frame.getContentPane().add(btnRetourLaccueil);
 		
 		JButton btnCarteBancaire = new JButton("Carte bancaire");
 		btnCarteBancaire.setBounds(230, 142, 240, 90);
@@ -69,5 +75,17 @@ public class Paiement {
 		label.setAlignment(Label.CENTER);
 		label.setBounds(20, 10, 642, 115);
 		frame.getContentPane().add(label);
+		
+		//bouton accueil
+		btnRetourLaccueil.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			frame.setVisible(false);
+			Accueil.getPanier().resetPanierValue();
+			Accueil.main(null);
+				
+		}
+				
+	});	
 	}
 }
