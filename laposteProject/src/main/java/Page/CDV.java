@@ -13,6 +13,8 @@ import javax.swing.DropMode;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
+import javax.swing.JFormattedTextField;
+import java.awt.TextArea;
 
 public class CDV extends JFrame {
 	
@@ -38,22 +40,34 @@ public class CDV extends JFrame {
 		setBounds(100, 100, 700, 500);
 		getContentPane().setLayout(null);
 		
-		JTextArea txtrArticle = new JTextArea();
-		txtrArticle.setWrapStyleWord(true);
-		txtrArticle.setLineWrap(true);
-		txtrArticle.setText("Article 1 : Objet Les présentes Conditions Générales de Vente déterminent les droits et obligations des parties dans le cadre de la vente en ligne de Produits ou Services proposés par le Vendeur.\r\n" + 
-				
-				"NOTE: On détaille ici l’objet du contrat qui est la vente en ligne de Produits et de Services par le Vendeur\r\n" + 
-				
-				"Article 2 : Dispositions générales Les présentes Conditions Générales de Vente régissent les ventes de Produits ou de Services, effectuées au travers des sites Internet de la Société, et sont partie intégrante du Contrat entre l’Acheteur et le Vendeur. Elles sont pleinement opposables à l’Acheteur qui les a acceptés avant de passer commande.\r\n" + 
-				
-				"Le Vendeur se réserve la possibilité de modifier les présentes, à tout moment par la publication d’une nouvelle version sur son site Internet. Les CGV applicables alors sont celles étant en vigueur à la date du paiement (ou du premier paiement en cas de paiements multiples) de la commande. Ces CGV sont consultables sur le site Internet de la Société à l’adresse suivante : XXX .");
-		txtrArticle.setBounds(10, 11, 664, 372);
-		getContentPane().add(txtrArticle);
-		
 		JButton btnAccueil = new JButton("Accueil");
 		btnAccueil.setBounds(300, 410, 89, 23);
 		getContentPane().add(btnAccueil);
+		
+		TextArea textArea = new TextArea();
+		textArea.setEditable(false);
+		textArea.setText("Article 1 - Objet\n" + 
+				"\n" + 
+				"Les présentes conditions régissent les ventes par la société.......... (dénomination sociale et adresse) de ......... (catégories ou nature des produits commercialisés par le site Internet). \n" + 
+				"\n" + 
+				"Article 2 - Prix\n" + 
+				"\n" + 
+				"Les prix de nos produits sont indiqués en euros toutes taxes comprises (TVA et autres taxes applicables au jour de la commande), sauf indication contraire et hors frais de traitement et d'expédition. \n" + 
+				"\n" + 
+				"En cas de commande vers un pays autre que la France métropolitaine vous êtes l'importateur du ou des produits concernés. Des droits de douane ou autres taxes locales ou droits d'importation ou taxes d'état sont susceptibles d'être exigibles. Ces droits et sommes ne relèvent pas du ressort de la société \n" + 
+				"\n" + 
+				".........(dénomination sociale). Ils seront à votre charge et relèvent de votre entière responsabilité, tant en termes de déclarations que de paiements aux autorités et organismes compétents de votre pays. Nous vous conseillons de vous renseigner sur ces aspects auprès de vos autorités locales. \n" + 
+				"\n" + 
+				"Toutes les commandes quelle que soit leur origine sont payables en euros.  \n" + 
+				"\n" + 
+				"La société ......... (dénomination sociale) se réserve le droit de modifier ses prix à tout moment, mais le produit sera facturé sur la base du tarif en vigueur au moment de la validation de la commande et sous réserve de disponibilité. \n" + 
+				"\n" + 
+				"Les produits demeurent la propriété de la société ......... (dénomination sociale) jusqu'au paiement complet du prix.  \n" + 
+				"\n" + 
+				"Attention : dès que vous prenez possession physiquement des produits commandés, les risques de perte ou d'endommagement des produits vous sont transférés.");
+		textArea.setSelectionStart(14);
+		textArea.setBounds(10, 10, 664, 394);
+		getContentPane().add(textArea);
 		btnAccueil.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
