@@ -110,7 +110,7 @@ public class Accueil {
 		final JLabel label_2 = new JLabel("Dans mon panier : "+panier.getPanierValue()+" €");
 		label_2.setBounds(10, 436, 333, 14);
 		frame.getContentPane().add(label_2);
-		
+		//
 		JButton btnViderLePanier = new JButton("Vider le panier");
 		btnViderLePanier.addMouseListener(new MouseAdapter() {
 			@Override
