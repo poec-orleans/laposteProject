@@ -23,7 +23,6 @@ public class Accueil {
 		return panier;
 	}
 	
-	
 
 	/**
 	 * Launch the application.
@@ -72,6 +71,13 @@ public class Accueil {
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Affranchir une lettre recommand\u00E9e");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.setVisible(false);
+				AffranchirLR.main();
+			}
+		});
 		btnNewButton_1.setBackground(new Color(30, 144, 255));
 		btnNewButton_1.setBounds(230, 142, 240, 90);
 		frame.getContentPane().add(btnNewButton_1);
@@ -101,9 +107,21 @@ public class Accueil {
 		frame.getContentPane().add(btnConditionsDeVente);
 		
 		
-		final JLabel label_2 = new JLabel("Dans mon panier : "+panier.getPanierValue()+"€");
-		label_2.setBounds(10, 436, 639, 14);
+		final JLabel label_2 = new JLabel("Dans mon panier : "+panier.getPanierValue()+" €");
+		label_2.setBounds(10, 436, 333, 14);
 		frame.getContentPane().add(label_2);
+		
+		JButton btnViderLePanier = new JButton("Vider le panier");
+		btnViderLePanier.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panier.resetPanierValue();
+				label_2.setText("Dans mon panier : 0 €");
+			}
+		});
+		btnViderLePanier.setBackground(new Color(30, 144, 255));
+		btnViderLePanier.setBounds(552, 432, 122, 23);
+		frame.getContentPane().add(btnViderLePanier);
 
 		
 	}
